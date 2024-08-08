@@ -51,14 +51,17 @@ function Nav() {
   };
 
   return (
-    <nav className="flex justify-between items-center bg-netflix-black text-netflix-red p-3 relative">
+    <nav
+      className="fixed top-0 left-0 w-full z-50 flex justify-between items-center p-3"
+      style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
+    >
       <div>
         <motion.h1
           initial="hidden"
           animate="visible"
-          className="text-xl md:text-2xl"
+          className="text-xl md:text-2xl text-netflix-white"
         >
-          DBMOVIES
+          DB<span className="font-bold text-netflix-red">MOVIES</span>
         </motion.h1>
       </div>
       <div>
@@ -93,14 +96,14 @@ function Nav() {
             animate="visible"
             exit="exit"
             variants={containerVariants}
-            className="absolute top-0 right-0 mt-12 mr-4 bg-netflix-black rounded-lg shadow-lg p-4 space-y-2"
+            className="absolute top-0 right-0 mt-12 mr-4 bg-netflix-white rounded-lg shadow-lg p-4 space-y-2"
           >
             {menus.map((menu, index) => {
               return (
                 <motion.li variants={itemVariants} key={index}>
                   <a
                     href={menu.link}
-                    className="text-netflix-white hover:text-netflix-red"
+                    className="text-netflix-black hover:text-netflix-red"
                   >
                     {menu.title}
                   </a>

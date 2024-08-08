@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import OurService from "./components/OurService";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -9,6 +10,7 @@ function App() {
     <main className="font-sans">
       <Nav />
       <Hero />
+      <OurService />
     </main>
   );
 }
