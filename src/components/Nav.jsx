@@ -1,119 +1,80 @@
-import { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoCloseSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
+import { IoSearchOutline } from "react-icons/io5";
+
+// Child Component
+import Search from "./shared/Nav/Search";
+import Navlink from "./shared/Nav/Navlink";
+import { useEffect, useState } from "react";
+
+// Service
+import { getSearchMovies } from "../service/service";
 
 function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSearchMobile, setIsSearchMobile] = useState(false);
+  const [search, setSearch] = useState("");
 
-  const menus = [
-    {
-      title: "Home",
-      link: "#",
-    },
-    {
-      title: "About",
-      link: "#",
-    },
-    {
-      title: "Contract",
-      link: "#",
-    },
-  ];
-
-  const handleHamButton = () => {
-    setIsOpen((prev) => !prev);
+  const handleSearchMobile = () => {
+    setIsSearchMobile((isSearchMobile) => !isSearchMobile);
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0, x: "-100%" },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 50,
-      },
-    },
-    exit: {
-      opacity: 0,
-      x: "-100%",
-      transition: {
-        type: "spring",
-        stiffness: 50,
-      },
-    },
+  const handleSearch = (value) => {
+    setSearch(value);
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
+  useEffect(
+    (search) => {
+      getSearchMovies(search)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    [search]
+  );
 
   return (
-    <nav
-      className="fixed top-0 left-0 w-full z-50 flex justify-between items-center p-3"
-      style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
-    >
-      <div>
-        <motion.h1
-          initial="hidden"
-          animate="visible"
-          className="text-xl md:text-2xl text-netflix-white"
-        >
-          DB<span className="font-bold text-netflix-red">MOVIES</span>
-        </motion.h1>
-      </div>
-      <div>
-        <button
-          onClick={handleHamButton}
-          className="block sm:hidden z-50 relative"
-        >
-          {isOpen ? (
-            <IoCloseSharp color="white" size={25} />
-          ) : (
-            <GiHamburgerMenu color="white" size={25} />
-          )}
-        </button>
-        <ul className="hidden text-netflix-white sm:flex gap-7">
-          {menus.map((menu, index) => {
-            return (
-              <motion.li
-                whileHover={{
-                  scale: 1.2,
-                  color: "#e50914",
-                  animation: { duration: 0.5 },
-                }}
-              >
-                <a href={menu.link}>{menu.title}</a>
-              </motion.li>
-            );
-          })}
-        </ul>
-        {isOpen && (
-          <motion.ul
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={containerVariants}
-            className="absolute top-0 right-0 mt-12 mr-4 bg-netflix-white rounded-lg shadow-lg p-4 space-y-2"
-          >
-            {menus.map((menu, index) => {
-              return (
-                <motion.li variants={itemVariants} key={index}>
-                  <a
-                    href={menu.link}
-                    className="text-netflix-black hover:text-netflix-red"
-                  >
-                    {menu.title}
-                  </a>
-                </motion.li>
-              );
-            })}
-          </motion.ul>
+    <>
+      <nav
+        className="fixed top-0 left-0 w-full z-50"
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
+      >
+        <div className="flex justify-between items-center p-3">
+          <div className="w-[50%] md:w-[40%]">
+            <motion.h1
+              initial="hidden"
+              animate="visible"
+              className="text-xl md:text-2xl text-netflix-white"
+            >
+              DB<span className="font-bold text-netflix-red">MOVIES</span>
+            </motion.h1>
+          </div>
+          <div className="w-[50%] md:w-[60%] flex justify-end md:justify-between items-center gap-3 md:gap-0">
+            <Navlink />
+            <Search
+              handleSearchMobile={handleSearchMobile}
+              isSearchMobile={isSearchMobile}
+              handleSearch={handleSearch}
+            />
+          </div>
+        </div>
+        {isSearchMobile && (
+          <div className="flex justify-center items-center gap-2 pl-5">
+            <input
+              type="text"
+              className="w-[60%] opacity-70 p-[2px] focus:outline-none focus:outline-netflix-red"
+              onChange={(e) => {
+                handleSearch(e.target.value);
+              }}
+            />
+            <button>
+              <IoSearchOutline color="white" size={20} />
+            </button>
+          </div>
         )}
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }
 
