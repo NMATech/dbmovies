@@ -7,7 +7,7 @@ function Search({ handleSearchMobile, isSearchMobile, handleSearch }) {
       <div className="flex justify-center items-center gap-2">
         <input
           type="text"
-          className="hidden md:block w-[60%] opacity-70 p-[2px] focus:outline-none focus:outline-netflix-red"
+          className="hidden md:block w-[60%] h-5 text-sm opacity-70 p-[2px] focus:outline-none focus:outline-netflix-red"
           onChange={(e) => {
             handleSearch(e.target.value);
           }}

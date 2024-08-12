@@ -5,13 +5,16 @@ import { IoSearchOutline } from "react-icons/io5";
 import Search from "./shared/Nav/Search";
 import Navlink from "./shared/Nav/Navlink";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 // Service
 import { getSearchMovies } from "../service/service";
+import ModalSearch from "./ModalSearch";
 
 function Nav() {
   const [isSearchMobile, setIsSearchMobile] = useState(false);
   const [search, setSearch] = useState("");
+  const [movies, setMovies] = useState([]);
 
   const handleSearchMobile = () => {
     setIsSearchMobile((isSearchMobile) => !isSearchMobile);
@@ -21,18 +24,17 @@ function Nav() {
     setSearch(value);
   };
 
-  useEffect(
-    (search) => {
-      getSearchMovies(search)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-    [search]
-  );
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (search) {
+        getSearchMovies(search, setMovies);
+      } else if (search === "") {
+        setMovies([]);
+      }
+    }, 500); // Menunggu 500ms setelah pengguna berhenti mengetik
+
+    return () => clearTimeout(timeoutId); // Membersihkan timeout jika pengguna mengetik lagi sebelum 500ms
+  }, [search]);
 
   return (
     <>
@@ -41,7 +43,7 @@ function Nav() {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
       >
         <div className="flex justify-between items-center p-3">
-          <div className="w-[50%] md:w-[40%]">
+          <div className="w-[50%] md:w-[40%] ml-5">
             <motion.h1
               initial="hidden"
               animate="visible"
@@ -73,6 +75,7 @@ function Nav() {
             </button>
           </div>
         )}
+        {movies && <ModalSearch datas={movies} />}
       </nav>
     </>
   );
