@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 function Video() {
   return (
-    <div className="bg-netflix-black flex flex-col gap-5 border-t-[5px] border-netflix-darkgray p-5">
+    <div className="bg-netflix-black flex flex-col gap-5 p-5">
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },
