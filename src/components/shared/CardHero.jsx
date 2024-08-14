@@ -21,8 +21,9 @@ function CardHero({ data }) {
             visible: { opacity: 1, x: 0 },
           }}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
           transition={{ duration: 0.5, delay: 0.5 }}
+          viewport={{ once: true }}
           src={data.Poster}
           alt={data.Title}
           className="w-[15em] hidden md:block"
@@ -33,8 +34,9 @@ function CardHero({ data }) {
             visible: { opacity: 1, y: 0 },
           }}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
           transition={{ duration: 0.5, delay: 0.7 }}
+          viewport={{ once: true }}
           className="flex flex-col gap-2 text-2xl font-bold"
           data-swiper-parallax="-300"
         >

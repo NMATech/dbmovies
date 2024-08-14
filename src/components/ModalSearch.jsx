@@ -1,6 +1,6 @@
 function ModalSearch({ datas }) {
   return (
-    <div className="absolute gap-2 w-max right-[1em] top-[2.5em] bg-netflix-darkgray rounded-lg p-2 overflow-auto max-h-[300px]">
+    <div className="absolute flex flex-col gap-2 w-max right-[1em] top-[2.5em] bg-netflix-darkgray rounded-lg p-2 overflow-auto max-h-[300px]">
       {datas.map((data, index) => {
         return (
           <div className="flex gap-1" key={index}>

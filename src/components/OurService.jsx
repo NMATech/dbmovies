@@ -22,8 +22,9 @@ function OurService() {
           visible: { opacity: 1, y: 0 },
         }}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
         transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
         className="flex justify-center items-center text-center flex-col gap-5 w-full md:w-[50%]"
       >
         <h1 className="font-bold text-lg lg:text-2xl">
@@ -39,12 +40,13 @@ function OurService() {
       </motion.div>
       <motion.div
         variants={{
-          hidden: { opacity: 0, x: 75 },
+          hidden: { opacity: 0, x: 100 },
           visible: { opacity: 1, x: 0 },
         }}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
         transition={{ duration: 1 }}
+        viewport={{ once: true }}
         className="h-max w-full md:w-[50%] text-netflix-black mt-5 md:mt-0"
       >
         <Swiper

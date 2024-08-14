@@ -22,8 +22,9 @@ function Hero() {
           transition: { duration: 0.5 },
         }}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
         transition={{ duration: 1 }}
+        viewport={{ once: true }}
         className="h-max w-full text-netflix-white"
       >
         <Swiper
