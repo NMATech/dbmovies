@@ -65,7 +65,7 @@ function Nav() {
           <div className="flex justify-center items-center gap-2 pl-5">
             <input
               type="text"
-              className="w-[60%] opacity-70 p-[2px] focus:outline-none focus:outline-netflix-red"
+              className="w-[60%] opacity-70 p-[2px]"
               onChange={(e) => {
                 handleSearch(e.target.value);
               }}
