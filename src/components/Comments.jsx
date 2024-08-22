@@ -43,8 +43,16 @@ function Comments() {
         viewport={{ once: true }}
       >
         <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }}
           freeMode={true}
           pagination={{
             clickable: true,

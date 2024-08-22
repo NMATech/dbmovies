@@ -6,7 +6,7 @@ function CardFaq({ data, isOpen, handleOpen, index }) {
   return (
     <section
       onClick={() => handleOpen(index)}
-      className="w-[60%] mx-auto bg-netflix-darkgray rounded-xl p-2 cursor-pointer"
+      className="w-[90%] md:w-[60%] mx-auto bg-netflix-darkgray rounded-xl p-2 cursor-pointer"
     >
       <div className="flex justify-between items-center p-2">
         <h1>{data.question}</h1>
