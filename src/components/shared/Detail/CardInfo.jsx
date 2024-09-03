@@ -1,28 +1,37 @@
-const CardInfo = () => {
+const CardInfo = ({ data }) => {
+  const director = data?.Director;
+  const writer = data?.Writer;
+  const actors = data?.Actors;
+  const genres = data?.Genre
+    ? data.Genre.split(",").map((genre) => genre.trim())
+    : [];
+
   return (
     <div className="w-3/5 flex flex-col gap-3">
       <ul className="flex gap-2 md:gap-5 text-netflix-white mt-3">
-        <li className="border border-netflix-white min-w-[100px] text-center px-4 py-2 rounded-full">
-          <h1 className="text-[14px]">Action</h1>
-        </li>
+        {genres.map((genre, index) => {
+          return (
+            <li
+              key={index}
+              className="border border-netflix-white min-w-[100px] text-center px-4 py-2 rounded-full"
+            >
+              <h1 className="text-[14px]">{genre}</h1>
+            </li>
+          );
+        })}
       </ul>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi incidunt,
-        obcaecati, itaque facere, ratione necessitatibus tenetur accusantium
-        mollitia sapiente quod sit velit ab inventore? Illo ab iusto facilis et
-        nesciunt?
-      </p>
+      <p>{data?.Plot}</p>
       <div className="flex gap-3 border-t border-netflix-darkgray pt-3">
         <h5 className="text-netflix-red text-xl">Director</h5>
-        <h5 className="text-xl">Saepul</h5>
+        <h5 className="text-xl">{director}</h5>
       </div>
       <div className="flex gap-3 border-t border-netflix-darkgray pt-3">
         <h5 className="text-netflix-red text-xl">Writer</h5>
-        <h5 className="text-xl">Saepul</h5>
+        <h5 className="text-xl">{writer}</h5>
       </div>
       <div className="flex gap-3 border-t border-netflix-darkgray pt-3">
         <h5 className="text-netflix-red text-xl">Actors</h5>
-        <h5 className="text-xl">Saepul</h5>
+        <h5 className="text-xl">{actors}</h5>
       </div>
     </div>
   );

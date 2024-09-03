@@ -15,19 +15,21 @@ function CardHero({ data }) {
       ></div>
       <div className="absolute inset-0 bg-netflix-black opacity-50"></div>
       <div className="flex items-center justify-start gap-4 h-full relative p-4 ml-1 md:ml-5">
-        <motion.img
-          variants={{
-            hidden: { opacity: 0, x: -100 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.5, delay: 0.5 }}
-          viewport={{ once: true }}
-          src={data.Poster}
-          alt={data.Title}
-          className="w-[15em] hidden md:block"
-        />
+        <a href={`/details/${data.imdbID}`}>
+          <motion.img
+            variants={{
+              hidden: { opacity: 0, x: -100 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 0.5, delay: 0.5 }}
+            viewport={{ once: true }}
+            src={data.Poster}
+            alt={data.Title}
+            className="w-[15em] hidden md:block"
+          />
+        </a>
         <motion.div
           variants={{
             hidden: { opacity: 0, y: 50 },

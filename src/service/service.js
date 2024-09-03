@@ -13,3 +13,15 @@ export const getSearchMovies = (title, setMovies) => {
       console.log(err);
     });
 };
+
+export const getDetails = (id, setData) => {
+  const url = `http://www.omdbapi.com/?apikey=${api_key}&i=${id}`;
+  axios
+    .get(url)
+    .then((res) => {
+      setData(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
