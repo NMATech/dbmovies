@@ -23,7 +23,7 @@ function Foot() {
   ];
 
   return (
-    <footer className="bg-netflix-black flex flex-col justify-center items-center gap-5 text-netflix-white p-3 pt-[70px]">
+    <footer className="bg-netflix-black flex flex-col justify-center items-center gap-5 text-netflix-white p-3 pt-[30px] md:pt-[70px]">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}

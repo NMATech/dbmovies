@@ -59,7 +59,9 @@ function OurService() {
           {dataOurService.map((data, index) => {
             return (
               <SwiperSlide key={index}>
-                <img src={data.Poster} alt={data.Title} className="" />
+                <a href={`/details/${data.imdbID}`}>
+                  <img src={data.Poster} alt={data.Title} className="" />
+                </a>
               </SwiperSlide>
             );
           })}

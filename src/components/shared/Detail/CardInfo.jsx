@@ -7,8 +7,8 @@ const CardInfo = ({ data }) => {
     : [];
 
   return (
-    <div className="w-3/5 flex flex-col gap-3">
-      <ul className="flex gap-2 md:gap-5 text-netflix-white mt-3">
+    <div className="w-full md:w-3/5 flex flex-col gap-3">
+      <ul className="flex flex-wrap gap-2 md:gap-5 text-netflix-white mt-3">
         {genres.map((genre, index) => {
           return (
             <li
@@ -22,16 +22,16 @@ const CardInfo = ({ data }) => {
       </ul>
       <p>{data?.Plot}</p>
       <div className="flex gap-3 border-t border-netflix-darkgray pt-3">
-        <h5 className="text-netflix-red text-xl">Director</h5>
-        <h5 className="text-xl">{director}</h5>
+        <h5 className="text-netflix-red text-lg md:text-xl">Director</h5>
+        <h5 className="text-lg md:text-xl">{director}</h5>
       </div>
       <div className="flex gap-3 border-t border-netflix-darkgray pt-3">
-        <h5 className="text-netflix-red text-xl">Writer</h5>
-        <h5 className="text-xl">{writer}</h5>
+        <h5 className="text-netflix-red text-lg md:text-xl">Writer</h5>
+        <h5 className="text-lg md:text-xl">{writer}</h5>
       </div>
       <div className="flex gap-3 border-t border-netflix-darkgray pt-3">
-        <h5 className="text-netflix-red text-xl">Actors</h5>
-        <h5 className="text-xl">{actors}</h5>
+        <h5 className="text-netflix-red text-lg md:text-xl">Actors</h5>
+        <h5 className="text-lg md:text-xl">{actors}</h5>
       </div>
     </div>
   );

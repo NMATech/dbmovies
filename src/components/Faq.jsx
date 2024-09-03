@@ -34,7 +34,7 @@ function Faq() {
   };
 
   return (
-    <section className="bg-netflix-black text-netflix-white">
+    <section className="bg-netflix-black text-netflix-white p-5">
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },

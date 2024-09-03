@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 
 function Comments() {
   return (
-    <div className="flex flex-col bg-netflix-black text-netflix-white">
+    <div className="flex flex-col bg-netflix-black text-netflix-white p-3 md:p-5">
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },

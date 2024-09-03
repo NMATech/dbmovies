@@ -9,14 +9,14 @@ function Navlink() {
   const menus = [
     {
       title: "Home",
-      link: "#",
+      link: "/",
     },
     {
       title: "About",
       link: "#",
     },
     {
-      title: "Contract",
+      title: "Contact",
       link: "#",
     },
   ];

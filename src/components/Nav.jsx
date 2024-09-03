@@ -44,13 +44,15 @@ function Nav() {
       >
         <div className="flex justify-between items-center p-3">
           <div className="w-[50%] md:w-[40%] ml-5">
-            <motion.h1
-              initial="hidden"
-              animate="visible"
-              className="text-xl md:text-2xl text-netflix-white"
-            >
-              DB<span className="font-bold text-netflix-red">MOVIES</span>
-            </motion.h1>
+            <a href="/">
+              <motion.h1
+                initial="hidden"
+                animate="visible"
+                className="text-xl md:text-2xl text-netflix-white"
+              >
+                DB<span className="font-bold text-netflix-red">MOVIES</span>
+              </motion.h1>
+            </a>
           </div>
           <div className="w-[50%] md:w-[60%] flex justify-end md:justify-between items-center gap-3 md:gap-0">
             <Navlink />
