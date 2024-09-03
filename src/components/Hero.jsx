@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import dataHero from "../service/data";
+import data from "../service/data";
 import { Parallax, Pagination, Navigation, Autoplay } from "swiper/modules";
 
 // Import Swiper styles
@@ -11,7 +11,7 @@ import "swiper/css/autoplay";
 import CardHero from "./shared/CardHero";
 
 function Hero() {
-  const datas = dataHero;
+  const { dataHero } = data;
 
   return (
     <motion.div className="bg-netflix-black text-netflix-white min-h-max py-2 px-2">
@@ -37,7 +37,7 @@ function Hero() {
           modules={[Parallax, Pagination, Navigation, Autoplay]}
           className="h-[500px]"
         >
-          {datas.map((data, index) => {
+          {dataHero.map((data, index) => {
             return (
               <SwiperSlide key={index}>
                 <CardHero data={data} />

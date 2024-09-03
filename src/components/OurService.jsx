@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import dataHero from "../service/data";
-
+import data from "../service/data";
 import Button from "./ui/Button";
 
 // Import Swiper styles
@@ -12,7 +11,7 @@ import { useRef } from "react";
 
 function OurService() {
   const ref = useRef(null);
-  const datas = dataHero;
+  const { dataOurService } = data;
 
   return (
     <motion.div className="flex flex-col md:flex-row bg-netflix-black text-netflix-white min-h-max py-10 px-2">
@@ -57,7 +56,7 @@ function OurService() {
           }}
           modules={[Pagination]}
         >
-          {datas.map((data, index) => {
+          {dataOurService.map((data, index) => {
             return (
               <SwiperSlide key={index}>
                 <img src={data.Poster} alt={data.Title} className="" />

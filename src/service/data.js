@@ -66,4 +66,37 @@ const dataHero = [
   },
 ];
 
-export default dataHero;
+const dataOurService = [
+  {
+    Title: "It Ends with Us",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BYzM2NGMzNGQtZjNhMi00MTVkLTg2ZGQtN2M4OTllYzU1Y2Y0XkEyXkFqcGc@._V1_SX300.jpg",
+    imdbID: "tt10655524",
+  },
+  {
+    Title: "Spider-Man: Across the Spider-Verse",
+    imdbID: "tt9362722",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMzI0NmVkMjEtYmY4MS00ZDMxLTlkZmEtMzU4MDQxYTMzMjU2XkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_SX300.jpg",
+  },
+  {
+    Title: "Bad Boys: Ride or Die",
+    imdbID: "tt4919268",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BY2U5YmQ3YjgtM2I2OC00YmM5LTkyM2MtN2I5Zjg2MDE0ODkwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg",
+  },
+  {
+    Title: "Longlegs",
+    imdbID: "tt23468450",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMmVkZWY2ODEtYTMyYy00MDg2LWFkMGUtMjYwOTBhOGViODQzXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+  },
+  {
+    Title: "Twisters",
+    imdbID: "tt12584954",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BZTQ0YjZhNzMtMzMwYi00YTQwLTlhYTgtNDBlZjRhYjJmMzJmXkEyXkFqcGc@._V1_SX300.jpg",
+  },
+];
+
+export default { dataHero, dataOurService };
