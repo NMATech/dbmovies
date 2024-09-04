@@ -1,3 +1,6 @@
+import { Fade } from "react-awesome-reveal";
+import { motion } from "framer-motion";
+
 const SectionInfo2 = () => {
   const dataService = [
     {
@@ -35,25 +38,39 @@ const SectionInfo2 = () => {
   return (
     <section className="flex flex-col md:flex-row gap-5 bg-netflix-black text-netflix-white px-[8vw] mt-[1em] md:mt-[3em]">
       <section className="flex flex-col gap-3 w-full md:w-1/2">
-        <h1 className="text-3xl font-semibold">Our's Service</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi dolore
-          voluptates dicta possimus.
-        </p>
+        <Fade cascade triggerOnce>
+          <h1 className="text-3xl font-semibold">Our's Service</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi dolore
+            voluptates dicta possimus.
+          </p>
+        </Fade>
         <section className="flex flex-col gap-2">
           {dataService.map((data, index) => {
             return (
               <>
                 <section key={index} className="w-full flex justify-between">
-                  <h1>{data.title}</h1>
-                  <h1>{data.percent}%</h1>
+                  <Fade cascade triggerOnce>
+                    <h1>{data.title}</h1>
+                    <h1>{data.percent}%</h1>
+                  </Fade>
                 </section>
                 <section className="relative">
-                  <section className="w-full h-4 bg-netflix-darkgray rounded-full"></section>
-                  <section
+                  <motion.section
+                    initial={{ opacity: 0, x: -100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="w-full h-4 bg-netflix-darkgray rounded-full"
+                  ></motion.section>
+                  <motion.section
+                    initial={{ opacity: 0, x: -100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    viewport={{ once: true }}
                     className="absolute inset-0 h-4 bg-netflix-red rounded-full"
                     style={{ width: `${data.percent}%` }}
-                  ></section>
+                  ></motion.section>
                 </section>
               </>
             );
@@ -67,10 +84,12 @@ const SectionInfo2 = () => {
               key={index}
               className="flex flex-col justify-center items-center text-center"
             >
-              <h1 className="text-[2em] md:text-[2.5em] lg:text-[3em] font-semibold">
-                {data.numbers}
-              </h1>
-              <h1 className="text-lg text-netflix-lightgray">{data.title}</h1>
+              <Fade cascade triggerOnce>
+                <h1 className="text-[2em] md:text-[2.5em] lg:text-[3em] font-semibold">
+                  {data.numbers}
+                </h1>
+                <h1 className="text-lg text-netflix-lightgray">{data.title}</h1>
+              </Fade>
             </section>
           );
         })}
