@@ -13,7 +13,7 @@ function Navlink() {
     },
     {
       title: "About",
-      link: "#",
+      link: "/about",
     },
     {
       title: "Contact",
