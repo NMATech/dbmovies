@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import Detail from "./components/Details/Detail";
-import Hero from "./components/Hero";
+import Detail from "../components/Details/Detail";
+import Hero from "../components/Hero";
 import { useEffect, useState } from "react";
-import { getDetails } from "./service/service";
+import { getDetails } from "../service/service";
 
 const Details = () => {
   const { id } = useParams();
