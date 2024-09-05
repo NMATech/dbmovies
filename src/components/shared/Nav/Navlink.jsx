@@ -17,7 +17,7 @@ function Navlink() {
     },
     {
       title: "Contact",
-      link: "#",
+      link: "/contact",
     },
   ];
 
