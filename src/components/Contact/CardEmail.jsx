@@ -1,6 +1,6 @@
 const CardEmail = () => {
   return (
-    <section className="w-1/2 flex flex-col gap-6 bg-gradient-to-br from-netflix-red to-netflix-red/50 rounded-xl p-6">
+    <section className="w-full md:w-1/2 flex flex-col gap-6 bg-gradient-to-br from-netflix-red to-netflix-red/50 rounded-xl p-6">
       <section>
         <h1 className="text-3xl font-semibold mb-2">Get In Touch !</h1>
         <p>

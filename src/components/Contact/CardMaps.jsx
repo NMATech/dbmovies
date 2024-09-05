@@ -1,6 +1,6 @@
 const CardMaps = () => {
   return (
-    <section className="w-1/2 flex flex-col gap-6 bg-netlflix-black rounded-xl p-6">
+    <section className="w-full md:w-1/2 flex flex-col gap-6 bg-netlflix-black rounded-xl p-6">
       <section>
         <h1 className="text-3xl font-semibold mb-2">Our Location !</h1>
         <p>
