@@ -3,7 +3,7 @@ import axios from "axios";
 const api_key = import.meta.env.VITE_API_KEY;
 
 export const getSearchMovies = (title, setMovies) => {
-  const url = `http://www.omdbapi.com/?apikey=${api_key}&s=${title}`;
+  const url = `https://www.omdbapi.com/?apikey=${api_key}&s=${title}`;
   axios
     .get(url)
     .then((res) => {
@@ -15,7 +15,7 @@ export const getSearchMovies = (title, setMovies) => {
 };
 
 export const getDetails = (id, setData) => {
-  const url = `http://www.omdbapi.com/?apikey=${api_key}&i=${id}`;
+  const url = `https://www.omdbapi.com/?apikey=${api_key}&i=${id}`;
   axios
     .get(url)
     .then((res) => {
