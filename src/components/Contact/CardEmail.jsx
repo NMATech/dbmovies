@@ -1,6 +1,14 @@
+import { motion } from "framer-motion";
+
 const CardEmail = () => {
   return (
-    <section className="w-full md:w-1/2 flex flex-col gap-6 bg-gradient-to-br from-netflix-red to-netflix-red/50 rounded-xl p-6">
+    <motion.section
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="w-full md:w-1/2 flex flex-col gap-6 bg-gradient-to-br from-netflix-red to-netflix-red/50 rounded-xl p-6"
+    >
       <section>
         <h1 className="text-3xl font-semibold mb-2">Get In Touch !</h1>
         <p>
@@ -31,7 +39,7 @@ const CardEmail = () => {
       <button className="w-max px-6 py-2 bg-netflix-black rounded-full">
         Submit
       </button>
-    </section>
+    </motion.section>
   );
 };
 
